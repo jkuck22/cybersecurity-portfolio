@@ -14,7 +14,7 @@ Hands-on learner building SIEM, detection engineering, and system administration
 
 ---
 
-## Featured Project
+## Featured Projects
 
 ### [Purple Team Lab – Wazuh SIEM + Kali + Metasploitable](https://github.com/jkuck22/purple-team-wazuh-lab)
 
@@ -28,6 +28,19 @@ A multi-VM lab where I deploy a SIEM, generate attacker activity, and validate t
 - Documented real troubleshooting: unsupported OS install, disk exhaustion, VM lockups, legacy agent incompatibility
 
 **Tools:** Wazuh, Kali Linux, Ubuntu Server, Metasploitable 2, VirtualBox, OpenSSH
+
+### [OPNsense Home Firewall – DNS Security, IDS & Hardening](https://github.com/jkuck22/opnsense-home-router)
+
+Replaced my ISP-managed mesh router with a self-built OPNsense firewall on recycled enterprise hardware, then layered on DNS security, SSH hardening, and intrusion detection. It now runs my home network.
+
+- Built the firewall on a **Dell OptiPlex 9020 with an Intel I350 NIC** (OPNsense on ZFS) and a locally managed **WiFi 6 access point** with no vendor cloud
+- Deployed network-wide **DNS filtering** (~1.6M ad, tracker, malware, and scam domains) with **DNSSEC**
+- **Enforced** the DNS control: a NAT redirect forces hardcoded resolvers (e.g. `8.8.8.8`) through the filter, DNS-over-TLS bypass is blocked, and upstream DNS is encrypted to Quad9
+- Deployed **Suricata IDS** with Emerging Threats rules and scheduled updates; validated with a live ET SCAN alert attributed to the source host
+- Hardened administration: **key-only SSH**, no root login, named admin account with **sudo**, LAN-only management
+- Diagnosed a **firewall rule-order misconfiguration** by inspecting the live `pf` ruleset, plus three other documented troubleshooting case studies
+
+**Tools:** OPNsense, pf, Suricata, Unbound DNS, NETGEAR WAX210, OpenSSH, PowerShell
 
 ---
 
@@ -58,12 +71,12 @@ Virtual lab work completed for my AMU network security coursework.
 
 | Area | Skills |
 |---|---|
-| **Security Monitoring** | SIEM deployment, alert triage, File Integrity Monitoring, custom detection rules |
-| **Network Security** | Firewall configuration (pfSense, Windows Defender Firewall), DMZ design, VLAN segmentation, packet analysis |
+| **Security Monitoring** | SIEM deployment, intrusion detection (Suricata), alert triage, File Integrity Monitoring, custom detection rules |
+| **Network Security** | Firewall deployment and configuration (OPNsense, pfSense, Windows Defender Firewall), NAT, rule-order analysis, DNS security (filtering, DNSSEC, DNS-over-TLS), DMZ design, VLAN segmentation, packet analysis |
 | **Offensive / Testing** | Exploitation with Metasploit, breach-and-attack simulation, OSINT reconnaissance, patch validation |
 | **Systems** | Linux (Ubuntu, Kali), Windows, PowerShell, VirtualBox, virtual networking |
 | **Security Concepts** | Purple teaming, social engineering, compliance mapping, SSH/host key verification, Linux permissions |
-| **Tools** | Wazuh, pfSense, Wireshark, Metasploit, Infection Monkey, OpenSearch Dashboards, Git/GitHub |
+| **Tools** | Wazuh, OPNsense, Suricata, pfSense, Wireshark, Metasploit, Infection Monkey, OpenSearch Dashboards, Git/GitHub |
 
 ---
 
